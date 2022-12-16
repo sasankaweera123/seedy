@@ -1,0 +1,78 @@
+body {
+  background-color: #f5f5f5;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: transparent;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+header .contentData {
+  color: #333;
+  line-height: 70px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+header h2 {
+  font-size: 20px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+header p {
+  font-size: 10px;
+  margin: -50px 0 0 0;
+}
+
+.container {
+  margin: auto;
+  /* width: 100%; */
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 50px auto;
+}
+
+.container .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.inside {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.plant {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.plant-text {
+  padding: 10px;
+}
+
+.plant:nth-child(1) {
+  background-color: greenyellow;
+}
+
+.plant:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  background-color: greenyellow;
+}
