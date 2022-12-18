@@ -83,7 +83,6 @@ input[type="text"] {
 .container {
   display: none;
   margin: auto;
-  /* width: 100%; */
   max-width: 1200px;
   margin: 100px auto;
   padding: 50px auto;
@@ -97,7 +96,7 @@ input[type="text"] {
 
 .inside {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
 }
@@ -113,10 +112,11 @@ input[type="text"] {
 }
 
 .plant:nth-child(1) {
-  background-color: greenyellow;
+  background-color: green;
+  color: white;
 }
 
 .plant:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
-  background-color: greenyellow;
+  background-color: green;
 }

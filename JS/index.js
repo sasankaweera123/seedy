@@ -1,10 +1,10 @@
 // hide data
 const btn = document.getElementById("btn");
-var humadity;
+let humadity;
 // number of plants
 let n;
 // value from the server side
-var value;
+let value;
 
 // plant image directory
 const plantImages = ["01", "02", "03", "04"];
@@ -21,8 +21,151 @@ const plantNames01 = [
   "Rugosa_rose",
 ];
 
-const plantNames02 = [];
-const plantNames03 = [];
+const plantNames02 = [
+  "Agave",
+  "Aster",
+  "Big_blue_stem",
+  "Butterfly_weed",
+  "Cactus",
+  "Catmint",
+  "Christmas_fern",
+  "Coneflower",
+  "Daffodil",
+  "Dalia",
+  "Daylilly",
+  "Gailardila",
+  "Heaths",
+  "Hosta",
+  "Hyssop",
+  "Iris",
+  "Lavendar",
+  "Lemon_balm",
+  "Lily",
+  "Marigold",
+  "Monarda",
+  "Ornamental_grass",
+  "Penstemon",
+  "Penoy",
+  "Petunia",
+  "Poppy",
+  "Purple_coneflower",
+  "Sedges",
+  "Sedum",
+  "Pensy",
+  "Tulip",
+  "Violet",
+  "Yarrow",
+  "Yucca",
+  "Zinnia",
+  "Apple",
+  "Grapes",
+  "Fig",
+  "Peach",
+  "Pear",
+  "Plum",
+  "Raspberry",
+  "Strawberry",
+  "Blackberry",
+  "Alpine_currant",
+  "American_filbert",
+  "American_holly",
+  "Amur_privet",
+  "Arborvitae",
+  "Azalea",
+  "Bald_cypress",
+  "Barberry",
+  "Black_tupelo",
+  "Chinese_juniper",
+  "Clematis",
+  "Common_boxwood",
+  "Common_lilac",
+  "Crab_apple",
+  "Crape_myrtle",
+  "Eastern_red_cedar",
+  "Elderberry",
+  "Elm",
+  "Frazier_fir",
+  "Gardenia",
+  "Ginkgo",
+  "Hawthorn",
+  "Holly",
+  "Honey_locust",
+  "Horse_chestnut",
+  "Juniper",
+  "Lilac",
+  "Maple",
+  "Mockorange",
+  "New_jersey_tea",
+  "Oaks",
+  "Ohio_buckeye",
+  "Potentilla",
+  "Roses",
+  "Rugosa_rose",
+  "Saucer_magnolia",
+  "Serviceberry",
+  "Silver_maple",
+  "Spirea",
+  "Spruce",
+  "Sugar_maple",
+  "Sweetshrub",
+  "White_fir",
+];
+const plantNames03 = [
+  "Apple",
+  "Grapes",
+  "Fig",
+  "Peach",
+  "Pear",
+  "Plum",
+  "Raspberry",
+  "Strawberry",
+  "Blackberry",
+  "Blueberry",
+  "Astilbe",
+  "Bleeding_heart",
+  "Daffodil",
+  "Dalia",
+  "Daylilly",
+  "Hellebores",
+  "Hosta",
+  "Iris",
+  "Ironweed",
+  "Jack_in_pulpit",
+  "Joe_pye_weed",
+  "Lily",
+  "Lobelia",
+  "Lupine",
+  "May_apple",
+  "Meadow_rue",
+  "Peony",
+  "Queen_of_the_prairie",
+  "Red_milkweed",
+  "Sedges",
+  "Pansy",
+  "Tulip",
+  "Violet",
+  "American_Filbert",
+  "Azealeas",
+  "Bald_cypress",
+  "Birch",
+  "Clematis",
+  "Common_elderberry",
+  "Crape_myrtle",
+  "Dawn_redwood",
+  "Dogwood",
+  "Elderberry",
+  "Elm",
+  "Hydragea",
+  "Red_cedar",
+  "Red_twig_dogwood",
+  "Rhodendron",
+  "Serviceberry",
+  "Silver_maple",
+  "Sweetshrub",
+  "Tamarac",
+  "White_pine",
+  "Willow",
+];
 
 const plantNames04 = [
   "Bald_Cypress",
@@ -40,8 +183,7 @@ const plantNames04 = [
 ];
 
 // set the date and time
-
-var dt = new Date();
+let dt = new Date();
 document.getElementById("date-time").innerHTML = dt.toLocaleString();
 
 btn.addEventListener("click", () => {
@@ -50,6 +192,7 @@ btn.addEventListener("click", () => {
 
   humadity = document.getElementById("humidity").value;
 
+  // Validate the input data
   if (!isNaN(humadity)) {
     if (humadity > 0 && humadity <= 80) {
       box.style.display = "none";
