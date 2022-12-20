@@ -10,6 +10,7 @@ Components:
 - I2C Module
 - Soil Moisture Sensor (Capacitive soil moisture sensor)
 - Push Button
+- 10k Ohm Resistor
 - GSM Module
 
 Method:
