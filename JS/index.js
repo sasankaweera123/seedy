@@ -186,6 +186,7 @@ const plantNames04 = [
 let dt = new Date();
 document.getElementById("date-time").innerHTML = dt.toLocaleString();
 
+// button action
 btn.addEventListener("click", () => {
   const box = document.getElementById("mainContainer");
   const details = document.getElementById("container");
