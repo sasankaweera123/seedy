@@ -65,7 +65,7 @@ const plantNames02 = [
   "Plum",
   "Raspberry",
   "Strawberry",
-  "Blackberry",
+  "Blackberry", // edited
   "Alpine_currant",
   "American_filbert",
   "American_holly",
@@ -230,23 +230,100 @@ function sencondFun() {
 
   const fragment = document.createDocumentFragment();
 
-  for (let i = 0; i < n; i++) {
+  let k = n < 10 ? n : 10; // number of plants (max 10)
+
+  for (let i = 0; i < k; i++) {
+    // create the divs and set the id and class
     var mainDiv = document.createElement("div");
     var mainText = document.createElement("h4");
     var linkplant = document.createElement("a");
     mainDiv.className = "plant";
     mainDiv.id = "plant" + i;
-    if (value == 1) mainText.textContent = plantNames01[i];
-    if (value == 2) mainText.textContent = plantNames02[i];
-    if (value == 3) mainText.textContent = plantNames03[i];
-    if (value == 4) mainText.textContent = plantNames04[i];
+    mainText.id = "plant-text" + i;
+    linkplant.id = "link-plant" + i;
+    let randomInt = Math.floor(Math.random() * (n - 1)); // random number between 0 and n-1
+    // set the plant name using the random number when the number of plants is more than 10
+    if (n > 10) {
+      if (value == 1) mainText.textContent = plantNames01[randomInt];
+      if (value == 2) mainText.textContent = plantNames02[randomInt];
+      if (value == 3) mainText.textContent = plantNames03[randomInt];
+      if (value == 4) mainText.textContent = plantNames04[randomInt];
+    }
+    // set the plant name using the index when the number of plants is less than 10
+    else {
+      if (value == 1) mainText.textContent = plantNames01[i];
+      if (value == 2) mainText.textContent = plantNames02[i];
+      if (value == 3) mainText.textContent = plantNames03[i];
+      if (value == 4) mainText.textContent = plantNames04[i];
+    }
     mainText.className = "plant-text";
+    // onmouseenter event for the plants to change the image
     linkplant.onmouseenter = function () {
-      changeImage("IMG/" + plantImages[value - 1] + "/img" + (i + 1) + ".jpg");
+      // change the image according to the plant when number of plants is more than 10
+      if (n > 10) {
+        if (value == 1)
+          changeImage(
+            "IMG/" +
+              plantImages[value - 1] +
+              "/" +
+              plantNames01[randomInt] +
+              ".jpg"
+          );
+        if (value == 2)
+          changeImage(
+            "IMG/" +
+              plantImages[value - 1] +
+              "/" +
+              plantNames02[randomInt] +
+              ".jpg"
+          );
+        if (value == 3)
+          changeImage(
+            "IMG/" +
+              plantImages[value - 1] +
+              "/" +
+              plantNames03[randomInt] +
+              ".jpg"
+          );
+        if (value == 4)
+          changeImage(
+            "IMG/" +
+              plantImages[value - 1] +
+              "/" +
+              plantNames04[randomInt] +
+              ".jpg"
+          );
+      }
+      // change the image according to the plant when number of plants is less than 10
+      else {
+        if (value == 1)
+          changeImage(
+            "IMG/" + plantImages[value - 1] + "/" + plantNames01[i] + ".jpg"
+          );
+        if (value == 2)
+          changeImage(
+            "IMG/" + plantImages[value - 1] + "/" + plantNames02[i] + ".jpg"
+          );
+        if (value == 3)
+          changeImage(
+            "IMG/" + plantImages[value - 1] + "/" + plantNames03[i] + ".jpg"
+          );
+        if (value == 4)
+          changeImage(
+            "IMG/" + plantImages[value - 1] + "/" + plantNames04[i] + ".jpg"
+          );
+      }
     };
 
+    // onmouseleave event for the plants to change the image
+    linkplant.onmouseleave = function () {
+      changeImage("IMG/icon.png");
+    };
+
+    // append the divs to the fragment
     fragment.appendChild(linkplant).appendChild(mainDiv).appendChild(mainText);
 
+    // append the fragment to the div
     document.getElementById("inside").appendChild(fragment);
   }
 }
@@ -255,4 +332,18 @@ function sencondFun() {
 function changeImage(imgChange) {
   var img = document.getElementById("slider");
   img.src = imgChange;
+}
+
+// refresh the plants
+document.getElementById("btn2").addEventListener("click", refreshPlants);
+
+// change the plants
+function refreshPlants() {
+  let k = n < 10 ? n : 10;
+
+  // remove the plants from the div and call the sencond function
+  for (let i = 0; i < k; i++) {
+    document.getElementById("link-plant" + i).remove();
+  }
+  sencondFun();
 }
