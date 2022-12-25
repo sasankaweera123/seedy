@@ -65,7 +65,7 @@ const plantNames02 = [
   "Plum",
   "Raspberry",
   "Strawberry",
-  "Blackberry", // edited
+  "Blackberry",
   "Alpine_currant",
   "American_filbert",
   "American_holly",
@@ -262,56 +262,20 @@ function sencondFun() {
       // change the image according to the plant when number of plants is more than 10
       if (n > 10) {
         if (value == 1)
-          changeImage(
-            "IMG/" +
-              plantImages[value - 1] +
-              "/" +
-              plantNames01[randomInt] +
-              ".jpg"
-          );
+          changeImage("IMG/plants/" + plantNames01[randomInt] + ".jpg");
         if (value == 2)
-          changeImage(
-            "IMG/" +
-              plantImages[value - 1] +
-              "/" +
-              plantNames02[randomInt] +
-              ".jpg"
-          );
+          changeImage("IMG/plants/" + plantNames02[randomInt] + ".jpg");
         if (value == 3)
-          changeImage(
-            "IMG/" +
-              plantImages[value - 1] +
-              "/" +
-              plantNames03[randomInt] +
-              ".jpg"
-          );
+          changeImage("IMG/plants/" + plantNames03[randomInt] + ".jpg");
         if (value == 4)
-          changeImage(
-            "IMG/" +
-              plantImages[value - 1] +
-              "/" +
-              plantNames04[randomInt] +
-              ".jpg"
-          );
+          changeImage("IMG/plants/" + plantNames04[randomInt] + ".jpg");
       }
       // change the image according to the plant when number of plants is less than 10
       else {
-        if (value == 1)
-          changeImage(
-            "IMG/" + plantImages[value - 1] + "/" + plantNames01[i] + ".jpg"
-          );
-        if (value == 2)
-          changeImage(
-            "IMG/" + plantImages[value - 1] + "/" + plantNames02[i] + ".jpg"
-          );
-        if (value == 3)
-          changeImage(
-            "IMG/" + plantImages[value - 1] + "/" + plantNames03[i] + ".jpg"
-          );
-        if (value == 4)
-          changeImage(
-            "IMG/" + plantImages[value - 1] + "/" + plantNames04[i] + ".jpg"
-          );
+        if (value == 1) changeImage("IMG/plants/" + plantNames01[i] + ".jpg");
+        if (value == 2) changeImage("IMG/plants/" + plantNames02[i] + ".jpg");
+        if (value == 3) changeImage("IMG/plants/" + plantNames03[i] + ".jpg");
+        if (value == 4) changeImage("IMG/plants/" + plantNames04[i] + ".jpg");
       }
     };
 
