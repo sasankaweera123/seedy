@@ -183,8 +183,11 @@ const plantNames04 = [
 ];
 
 // set the date and time
-let dt = new Date();
-document.getElementById("date-time").innerHTML = dt.toLocaleString();
+function realTime() {
+  let dt = new Date();
+  document.getElementById("date-time").innerHTML = dt.toLocaleString();
+}
+setInterval(realTime, 1000);
 
 // button action
 btn.addEventListener("click", () => {
@@ -230,84 +233,40 @@ function sencondFun() {
 
   const fragment = document.createDocumentFragment();
 
-  let k = n < 10 ? n : 10; // number of plants (max 10)
-
-  for (let i = 0; i < k; i++) {
+  for (let i = 0; i < n; i++) {
     // create the divs and set the id and class
     var mainDiv = document.createElement("div");
-    var mainText = document.createElement("h4");
-    var linkplant = document.createElement("a");
+    var image = document.createElement("img");
+    var plantText = document.createElement("div");
     mainDiv.className = "plant";
     mainDiv.id = "plant" + i;
-    mainText.id = "plant-text" + i;
-    linkplant.id = "link-plant" + i;
-    let randomInt = Math.floor(Math.random() * (n - 1)); // random number between 0 and n-1
-    // set the plant name using the random number when the number of plants is more than 10
-    if (n > 10) {
-      if (value == 1) mainText.textContent = plantNames01[randomInt];
-      if (value == 2) mainText.textContent = plantNames02[randomInt];
-      if (value == 3) mainText.textContent = plantNames03[randomInt];
-      if (value == 4) mainText.textContent = plantNames04[randomInt];
-    }
-    // set the plant name using the index when the number of plants is less than 10
-    else {
-      if (value == 1) mainText.textContent = plantNames01[i];
-      if (value == 2) mainText.textContent = plantNames02[i];
-      if (value == 3) mainText.textContent = plantNames03[i];
-      if (value == 4) mainText.textContent = plantNames04[i];
-    }
-    mainText.className = "plant-text";
-    // onmouseenter event for the plants to change the image
-    linkplant.onmouseenter = function () {
-      // change the image according to the plant when number of plants is more than 10
-      if (n > 10) {
-        if (value == 1)
-          changeImage("IMG/plants/" + plantNames01[randomInt] + ".jpg");
-        if (value == 2)
-          changeImage("IMG/plants/" + plantNames02[randomInt] + ".jpg");
-        if (value == 3)
-          changeImage("IMG/plants/" + plantNames03[randomInt] + ".jpg");
-        if (value == 4)
-          changeImage("IMG/plants/" + plantNames04[randomInt] + ".jpg");
-      }
-      // change the image according to the plant when number of plants is less than 10
-      else {
-        if (value == 1) changeImage("IMG/plants/" + plantNames01[i] + ".jpg");
-        if (value == 2) changeImage("IMG/plants/" + plantNames02[i] + ".jpg");
-        if (value == 3) changeImage("IMG/plants/" + plantNames03[i] + ".jpg");
-        if (value == 4) changeImage("IMG/plants/" + plantNames04[i] + ".jpg");
-      }
-    };
+    image.className = "plant-image";
+    image.width = "200";
+    plantText.className = "plant-text";
 
-    // onmouseleave event for the plants to change the image
-    linkplant.onmouseleave = function () {
-      changeImage("IMG/icon.png");
-    };
+    // set the image and text
+    if (value == 1) {
+      image.src = "IMG/plants/" + plantNames01[i] + ".jpg";
+      plantText.textContent = plantNames01[i];
+    }
+    if (value == 2) {
+      image.src = "IMG/plants/" + plantNames02[i] + ".jpg";
+      plantText.textContent = plantNames02[i];
+    }
+    if (value == 3) {
+      image.src = "IMG/plants/" + plantNames03[i] + ".jpg";
+      plantText.textContent = plantNames03[i];
+    }
+    if (value == 4) {
+      image.src = "IMG/plants/" + plantNames04[i] + ".jpg";
+      plantText.textContent = plantNames04[i];
+    }
 
     // append the divs to the fragment
-    fragment.appendChild(linkplant).appendChild(mainDiv).appendChild(mainText);
+    fragment.appendChild(mainDiv).appendChild(image);
+    fragment.appendChild(mainDiv).appendChild(plantText);
 
     // append the fragment to the div
     document.getElementById("inside").appendChild(fragment);
   }
-}
-
-// change the image
-function changeImage(imgChange) {
-  var img = document.getElementById("slider");
-  img.src = imgChange;
-}
-
-// refresh the plants
-document.getElementById("btn2").addEventListener("click", refreshPlants);
-
-// change the plants
-function refreshPlants() {
-  let k = n < 10 ? n : 10;
-
-  // remove the plants from the div and call the sencond function
-  for (let i = 0; i < k; i++) {
-    document.getElementById("link-plant" + i).remove();
-  }
-  sencondFun();
 }

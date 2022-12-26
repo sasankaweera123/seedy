@@ -9,8 +9,9 @@ body {
 }
 
 header {
-  background: transparent;
+  background: white;
   border-bottom: 1px solid #e5e5e5;
+  border-radius: 5%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   height: 80px;
   position: fixed;
@@ -19,22 +20,34 @@ header {
   z-index: 100;
 }
 
+header .headcontent {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
 header .contentData {
+  display: flex;
+  justify-content: space-between;
   color: #333;
-  line-height: 70px;
+  align-items: center;
   padding: 0 20px;
-  text-align: center;
+}
+
+header img {
+  margin: 1em;
 }
 
 header h2 {
   font-size: 20px;
-  margin: 0;
+  margin: 0.6em;
   text-transform: uppercase;
 }
 
-header p {
-  font-size: 10px;
-  margin: -50px 0 0 0;
+header .headcontent p {
+  font-size: 20px;
+  margin-right: 1.5em;
+  align-items: center;
 }
 
 .mainContainer {
@@ -96,27 +109,38 @@ input[type="text"] {
 
 .inside {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 2rem;
-  row-gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
 }
 
 .plant {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  border-radius: 10px;
-  text-align: center;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  float: left;
+  overflow: hidden;
 }
 
-.plant-text {
-  padding: 10px;
-}
-
-.plant:nth-child(1) {
-  background-color: green;
+.plant div {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: green;
   color: white;
+  margin-bottom: 5px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
-.plant:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
-  background-color: green;
+.plant div {
+  cursor: pointer;
+}
+
+.plant:hover div {
+  width: 150px;
+  padding: 8px 15px;
+  opacity: 1;
+  visibility: visible;
 }
