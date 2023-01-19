@@ -36,8 +36,9 @@ void setup(){
 
 void loop(){
  
-  button = digitalRead(buttonPin); // get the button read
+  int button = digitalRead(buttonPin); // get the button read
   Serial.println(button); // print the button status in serial monitor 
+  delay(1000);
   
   
 }
