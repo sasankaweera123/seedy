@@ -19,7 +19,6 @@ Components:
 4. Breadboard
 
 */
-
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup(){
