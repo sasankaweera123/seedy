@@ -52,7 +52,7 @@ This project is designed to detect humidity, temperature, and soil moisture leve
 
 - This project can be used for gardening and agriculture purposes, it helps to monitor the environmental condition and suggests the appropriate plants. The use of GSM module and website allows the user to check the status remotely.
 
-## Find
+## Find 🔎
 
 📫 How to reach me... , </br></br>
 <a href="https://www.facebook.com/sajeev.weerakoon.1/">
@@ -64,6 +64,6 @@ This project is designed to detect humidity, temperature, and soil moisture leve
 <br>
 <br>
 
-## License
+## License 🗞
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
