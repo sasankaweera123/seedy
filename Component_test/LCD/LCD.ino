@@ -1,39 +1,26 @@
-
-/*
-
-LCD 16x2 I2C test
-
-This code is used to test the LCD 16x2 I2C	
-
-method:
-
-1. Connect the LCD 16x2 I2C to the arduino board
-2. Connect the arduino board to the computer
-3. The LCD should print "Hello World"
-
-Components:
-
-1. Arduino board
-2. LCD 16x2 I2C
-3. Jumper wires
-4. Breadboard
-
-*/
-
-#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x3F, 16, 2); // I2C address 0x27, 16 column and 2 rows
 
-void setup(){
-    lcd.begin();
-    lcd.backlight();
-    lcd.setCursor(4,0);
-    lcd.print("Hello");
-    lcd.setCursor(4,1);
-    lcd.print("World");
+void setup()
+{
+  lcd.init(); // initialize the lcd
+  lcd.backlight();
 }
 
-void loop(){
+void loop()
+{
+  lcd.clear();                 // clear display
+  lcd.setCursor(0, 0);         // move cursor to   (0, 0)
+  lcd.print("Arduino");        // print message at (0, 0)
+  lcd.setCursor(2, 1);         // move cursor to   (2, 1)
+  lcd.print("GetStarted.com"); // print message at (2, 1)
+  delay(2000);                 // display the above for two seconds
 
+  lcd.clear();                  // clear display
+  lcd.setCursor(3, 0);          // move cursor to   (3, 0)
+  lcd.print("DIYables");        // print message at (3, 0)
+  lcd.setCursor(0, 1);          // move cursor to   (0, 1)
+  lcd.print("www.diyables.io"); // print message at (0, 1)
+  delay(2000);                  // display the above for two seconds
 }
